@@ -1,0 +1,7 @@
+[
+   {
+      "directory" : "D:/ccstheia_workspace/MSP430G2553/LED_flash/Debug",
+      "command"   : "clang++ -I\"D:/ccstheia141/ccs/ccs_base/msp430/include\" -I\"D:/ccstheia_workspace/MSP430G2553/LED_flash\" -I\"D:/ccstheia141/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include\" -D__MSP430G2553__",
+      "file"      : "D:/ccstheia_workspace/MSP430G2553/LED_flash/main.c"
+   }
+]
