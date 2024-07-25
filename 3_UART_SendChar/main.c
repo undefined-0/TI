@@ -8,26 +8,47 @@ int main(void)
 {
 	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
 
-	/*注：等号右边的宏定义都在msp430g2553.h中被定义*/
+	/*ע���Ⱥ��ұߵĺ궨�嶼��msp430g2553.h�б�����*/
 
-	/*配置系统时钟 配置DCO为1MHz*/
-	DCOCTL = CAL_DCO_1MHZ
-	BCSCTL1 = CAL_BC1_1MHZ
+	/*����ϵͳʱ�� ����DCOΪ1MHz*/
+	DCOCTL = CALDCO_1MHZ;
+	BCSCTL1 = CALBC1_1MHZ;
 
-	/*配置SMCLK的时钟源为DCO*/
-	BCSCTL2 &= ~SELS; // 系统复位时此位已为0，实际上不需要配置就已经选择了SMCLK从DCO来。
+	/*����SMCLK��ʱ��ԴΪDCO*/
+	BCSCTL2 &= ~SELS; // ϵͳ��λʱ��λ��Ϊ0��ʵ���ϲ���Ҫ���þ��Ѿ�ѡ����SMCLK��DCO����
 
-	/*配置SMCLK的分频系数为1*/
-	BCSCTL2 &= ~(DIVS0 | DIVS1); // 将BCSCTL2的第一位和第二位配置为00，即分频系数选择1
+	/*����SMCLK�ķ�Ƶϵ��Ϊ1*/
+	BCSCTL2 &= ~(DIVS0 | DIVS1); // ��BCSCTL2�ĵ�һλ�͵ڶ�λ����Ϊ00������Ƶϵ��ѡ��1
 
-	/*复位USCI_Ax*/
+	/*��λUSCI_Ax*/
 	UCA0CTL1 |= UCSWRST;
 
-	/*因为是UART，选择USCI_Ax为异步模式*/
-	UCA0CTL0 &= ~UCSYNC; // 系统复位时此位已为0，实际上不需要配置就已经选择了异步模式。
+	/*��Ϊ��UART��ѡ��USCI_AxΪ�첽ģʽ*/
+	UCA0CTL0 &= ~UCSYNC; // ϵͳ��λʱ��λ��Ϊ0��ʵ���ϲ���Ҫ���þ��Ѿ�ѡ�����첽ģʽ��
 
-	/*配置UART时钟源为SMCLK*/
-	UCA0CTL1 &= UCSSEL1;
+	/*����UARTʱ��ԴΪSMCLK*/
+	UCA0CTL1 |= UCSSEL1;
 	
+	/*���ò�����Ϊ9600*/
+	UCA0BR0 = 0x68; // 16���Ƶ�104�������������û��ֲᲨ�������ñ���
+	UCA0BR1 = 0x00;
+	UCA0MCTL = 1<<1; // 1����һλ��ʹUCBRS1Ϊ1
+
+	/*ʹ�ܶ˿ڸ���*/
+	P1SEL |= BIT1 + BIT2;
+	P1SEL2 |= BIT1 + BIT2;
+
+	/*���㸴λλ��ʹ��UART*/
+	UCA0CTL1 &= ~UCSWRST;
+
+	P1DIR |= BIT0; //��ʼ��LED1����IO��P1.0Ϊ���ģʽ
+	P1OUT |= BIT0; //����LED1
+
+	while(1)
+	{
+		UCA0TXBUF = 0x55; // ��Ҫ���͵�����д�뷢�ͻ���Ĵ���
+		__delay_cycles(500000); // �ӳ�Լ500ms
+		P1OUT ^= 0x01;
+	}
 	return 0;
 }

@@ -6,20 +6,20 @@
 int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
-    P1DIR |= BIT6; //初始化LED2所在IO口P1.6为输出模式
-    P1OUT &= ~BIT6; //初始化LED2所在IO口P1.6为低电平（初始状态为熄灭）
-    P1DIR &= ~BIT3; //初始化按键所在IO口P1.3为输入
-    P1REN |= BIT3; // 使能
-    P1OUT |= BIT3; // 上拉
+    P1DIR |= BIT6; //��ʼ��LED2����IO��P1.6Ϊ���ģʽ
+    P1OUT &= ~BIT6; //��ʼ��LED2����IO��P1.6Ϊ�͵�ƽ����ʼ״̬ΪϨ��
+    P1DIR &= ~BIT3; //��ʼ����������IO��P1.3Ϊ����
+    P1REN |= BIT3; // ʹ��
+    P1OUT |= BIT3; // ����
     while(1)
     {
-        if(P1IN & BIT3) //如果P1.3口为高电平，证明按键没被按下
+        if(P1IN & BIT3) //���P1.3��Ϊ�ߵ�ƽ��֤������û������
         {
-            P1OUT &= ~BIT6; //熄灭LED2
+            P1OUT &= ~BIT6; //Ϩ��LED2
         }
         else
         {
-            P1OUT |= BIT6; //点亮LED2
+            P1OUT |= BIT6; //����LED2
         }
     }
     return 0;
