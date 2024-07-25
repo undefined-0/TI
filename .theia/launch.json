@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "1_LED_flash",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "1_LED_flash"
+        },
+        {
+            "name": "2_KEY_LED",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "2_KEY_LED"
+        }
+    ]
+}
