@@ -1,3 +1,4 @@
+#define __MSP430G2553__
 #include <msp430.h> 
 
 #include "oled.h"
