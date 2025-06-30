@@ -128,16 +128,10 @@ EXE_OUTPUTS += \
 EXE_OUTPUTS__QUOTED += \
 "7_UART_OpenMV.out" 
 
-BIN_OUTPUTS += \
-7_UART_OpenMV.txt 
-
-BIN_OUTPUTS__QUOTED += \
-"7_UART_OpenMV.txt" 
-
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "7_UART_OpenMV.out" secondary-outputs
+	@$(MAKE) --no-print-directory -Onone "7_UART_OpenMV.out"
 
 # Tool invocations
 7_UART_OpenMV.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
@@ -147,22 +141,13 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
-7_UART_OpenMV.txt: $(EXE_OUTPUTS)
-	@echo 'Building secondary target: "$@"'
-	@echo 'Invoking: MSP430 Hex Utility'
-	"D:/ccs1271/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/hex430" --memwidth=8 --romwidth=8 --diag_wrap=off --ti_txt -o "7_UART_OpenMV.txt" $(EXE_OUTPUTS__QUOTED)
-	@echo 'Finished building secondary target: "$@"'
-	@echo ' '
-
 # Other Targets
 clean:
-	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
+	-$(RM) $(EXE_OUTPUTS__QUOTED)
 	-$(RM) "main.obj" "src\oled.obj" 
 	-$(RM) "main.d" "src\oled.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
-
-secondary-outputs: $(BIN_OUTPUTS)
 
 .PHONY: all clean dependents
 .SECONDARY:

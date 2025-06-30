@@ -12,6 +12,24 @@
             "type": "ccs-debug",
             "request": "launch",
             "project": "2_KEY_LED"
+        },
+        {
+            "name": "gpio_software_poll_LP_MSPM0L1306_nortos_ticlang",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "gpio_software_poll_LP_MSPM0L1306_nortos_ticlang"
+        },
+        {
+            "name": "timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang"
+        },
+        {
+            "name": "timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang"
         }
     ]
 }

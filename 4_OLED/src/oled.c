@@ -302,7 +302,9 @@ void OLED_ShowNum(u8 x,u8 y,u32 num,u8 len,u8 size2)
 	 	OLED_ShowChar(x+(size2/2)*t,y,temp+'0',size2); 
 	}
 } 
-//显示一个字符号串
+
+//显示一个字符串
+//240727注：更改第二个参数y的效果实际上是更改了行号。x参数似乎没用？
 void OLED_ShowString(u8 x,u8 y,u8 *chr,u8 Char_Size)
 {
 	unsigned char j=0;
