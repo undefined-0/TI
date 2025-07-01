@@ -76,6 +76,20 @@ extern "C" {
 
 
 
+/* Defines for PWM_0 */
+#define PWM_0_INST                                                         TIMG0
+#define PWM_0_INST_IRQHandler                                   TIMG0_IRQHandler
+#define PWM_0_INST_INT_IRQN                                     (TIMG0_INT_IRQn)
+#define PWM_0_INST_CLK_FREQ                                             16000000
+/* GPIO defines for channel 0 */
+#define GPIO_PWM_0_C0_PORT                                                 GPIOA
+#define GPIO_PWM_0_C0_PIN                                         DL_GPIO_PIN_12
+#define GPIO_PWM_0_C0_IOMUX                                      (IOMUX_PINCM13)
+#define GPIO_PWM_0_C0_IOMUX_FUNC                     IOMUX_PINCM13_PF_TIMG0_CCP0
+#define GPIO_PWM_0_C0_IDX                                    DL_TIMER_CC_0_INDEX
+
+
+
 
 /* Defines for ADC12_0 */
 #define ADC12_0_INST                                                        ADC0
@@ -84,8 +98,8 @@ extern "C" {
 #define ADC12_0_ADCMEM_0                                      DL_ADC12_MEM_IDX_0
 #define ADC12_0_ADCMEM_0_REF                     DL_ADC12_REFERENCE_VOLTAGE_VDDA
 #define ADC12_0_ADCMEM_0_REF_VOLTAGE                                          -1 // VDDA cannot be determined
-#define GPIO_ADC12_0_C2_PORT                                               GPIOA
-#define GPIO_ADC12_0_C2_PIN                                       DL_GPIO_PIN_25
+#define GPIO_ADC12_0_C0_PORT                                               GPIOA
+#define GPIO_ADC12_0_C0_PIN                                       DL_GPIO_PIN_27
 
 
 /* clang-format on */
@@ -94,6 +108,7 @@ void SYSCFG_DL_init(void);
 void SYSCFG_DL_initPower(void);
 void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
+void SYSCFG_DL_PWM_0_init(void);
 void SYSCFG_DL_ADC12_0_init(void);
 
 

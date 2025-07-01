@@ -1,33 +1,16 @@
-/*
- * Copyright (c) 2021, Texas Instruments Incorporated
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * *  Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- *
- * *  Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- *
- * *  Neither the name of Texas Instruments Incorporated nor the names of
- *    its contributors may be used to endorse or promote products derived
- *    from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+/**
+ * 程序功能：使用AD采集外部电压（ADC0，channel 0，PA27输入），通过DA输出。
+ * MSPM0L1306片内不含DA，故采用PWM（TIMG0，PWM channel 0，PA12输出）模拟DA。
+ * 
+ * 思路：12位AD输出结果ADC_val范围为0-4095，程序中设置PWM Period Count为4096，
+ * 使用DL_TimerG_setCaptureCompareValue(PWM_0_INST, ADC_val, DL_TIMER_CC_0_INDEX); 函数，
+ * 将ADC_val直接传入Counter Campare Value。
+ * 这样，占空比Counter Campare Value/PWM Period Count即为ADC_val/4096，
+ * 如此实现了AD采样电压值于PWM模拟DA原样输出。
+ * 
+ * 注：从PA27输入正弦波时，PA12处输出为占空比不断变化的PWM波。
+ * 经二阶RC低通滤波器滤波后，输出结果为频率与PA27处相同的正弦波。
+ * 缺点：超低频（f < 40Hz）时才能满足较小衰减，且相移明显。
  */
 
 #include "ti/driverlib/dl_adc12.h"
@@ -41,7 +24,8 @@ int main(void)
 {
     SYSCFG_DL_init();
 
-    NVIC_EnableIRQ(ADC12_0_INST_INT_IRQN);
+    NVIC_EnableIRQ(ADC12_0_INST_INT_IRQN); // 打开AD转换的中断
+    DL_TimerG_startCounter(PWM_0_INST); // 打开PWM输出
 
     while (1) 
     {
@@ -51,6 +35,7 @@ int main(void)
         while (ADC_flag==false); // 等待转换完成
 
         ADC_val = DL_ADC12_getMemResult(ADC12_0_INST, DL_ADC12_MEM_IDX_0); // 读取ADC值
+        DL_TimerG_setCaptureCompareValue(PWM_0_INST, ADC_val, DL_TIMER_CC_0_INDEX); // 更改PWM占空比
         DL_ADC12_enableConversions(ADC12_0_INST); // 重新开启转换
     }
 }

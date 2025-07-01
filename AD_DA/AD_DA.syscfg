@@ -10,19 +10,29 @@
  */
 const ADC12  = scripting.addModule("/ti/driverlib/ADC12", {}, false);
 const ADC121 = ADC12.addInstance();
+const PWM    = scripting.addModule("/ti/driverlib/PWM", {}, false);
+const PWM1   = PWM.addInstance();
 const SYSCTL = scripting.addModule("/ti/driverlib/SYSCTL");
 
 /**
  * Write custom configuration values to the imported modules.
  */
 ADC121.$name               = "ADC12_0";
-ADC121.adcMem0chansel      = "DL_ADC12_INPUT_CHAN_2";
 ADC121.powerDownMode       = "DL_ADC12_POWER_DOWN_MODE_MANUAL";
 ADC121.sampleTime0         = "125us";
 ADC121.enabledInterrupts   = ["DL_ADC12_INTERRUPT_MEM0_RESULT_LOADED"];
-ADC121.adcPin2Config.$name = "ti_driverlib_gpio_GPIOPinGeneric0";
+ADC121.adcPin0Config.$name = "ti_driverlib_gpio_GPIOPinGeneric0";
 
 const Board = scripting.addModule("/ti/driverlib/Board", {}, false);
+
+PWM1.$name                   = "PWM_0";
+PWM1.ccIndex                 = [0];
+PWM1.timerCount              = 4096;
+PWM1.clockPrescale           = 2;
+PWM1.peripheral.$assign      = "TIMG0";
+PWM1.PWM_CHANNEL_0.$name     = "ti_driverlib_pwm_PWMTimerCC0";
+PWM1.PWM_CHANNEL_0.dutyCycle = 10;
+PWM1.ccp0PinConfig.$name     = "ti_driverlib_gpio_GPIOPinGeneric1";
 
 
 /**
@@ -31,8 +41,9 @@ const Board = scripting.addModule("/ti/driverlib/Board", {}, false);
  * re-solve from scratch.
  */
 ADC121.peripheral.$suggestSolution         = "ADC0";
-ADC121.peripheral.adcPin2.$suggestSolution = "PA25";
+ADC121.peripheral.adcPin0.$suggestSolution = "PA27";
 Board.peripheral.$suggestSolution          = "DEBUGSS";
 Board.peripheral.swclkPin.$suggestSolution = "PA20";
 Board.peripheral.swdioPin.$suggestSolution = "PA19";
+PWM1.peripheral.ccp0Pin.$suggestSolution   = "PA12";
 SYSCTL.peripheral.$suggestSolution         = "SYSCTL";
