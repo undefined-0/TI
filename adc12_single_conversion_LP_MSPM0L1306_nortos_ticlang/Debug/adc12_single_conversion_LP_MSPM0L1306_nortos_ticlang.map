@@ -1,7 +1,7 @@
 ******************************************************************************
             TI ARM Clang Linker PC v3.2.2                      
 ******************************************************************************
->> Linked Tue Jul  1 11:05:56 2025
+>> Linked Tue Jul  1 14:47:28 2025
 
 OUTPUT FILE NAME:   <adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang.out>
 ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00000231

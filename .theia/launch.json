@@ -36,6 +36,12 @@
             "type": "ccs-debug",
             "request": "launch",
             "project": "adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang"
+        },
+        {
+            "name": "AD_DA",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "AD_DA"
         }
     ]
 }
