@@ -30,6 +30,12 @@
             "type": "ccs-debug",
             "request": "launch",
             "project": "timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang"
+        },
+        {
+            "name": "adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang"
         }
     ]
 }
