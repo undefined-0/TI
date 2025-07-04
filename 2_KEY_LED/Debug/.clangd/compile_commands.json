@@ -1,7 +1,0 @@
-[
-   {
-      "directory" : "D:/CCSworkspace_v12/2_KEY_LED/Debug",
-      "command"   : "clang++ -I\"D:/ccstheia141/ccs/ccs_base/msp430/include\" -I\"D:/CCSworkspace_v12/2_KEY_LED\" -I\"D:/ccstheia141/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include\" -D__MSP430G2553__",
-      "file"      : "D:/CCSworkspace_v12/2_KEY_LED/main.c"
-   }
-]

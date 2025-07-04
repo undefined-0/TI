@@ -8,12 +8,6 @@
             "project": "1_LED_flash"
         },
         {
-            "name": "2_KEY_LED",
-            "type": "ccs-debug",
-            "request": "launch",
-            "project": "2_KEY_LED"
-        },
-        {
             "name": "gpio_software_poll_LP_MSPM0L1306_nortos_ticlang",
             "type": "ccs-debug",
             "request": "launch",
@@ -36,12 +30,6 @@
             "type": "ccs-debug",
             "request": "launch",
             "project": "adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang"
-        },
-        {
-            "name": "AD_DA",
-            "type": "ccs-debug",
-            "request": "launch",
-            "project": "AD_DA"
         }
     ]
 }
