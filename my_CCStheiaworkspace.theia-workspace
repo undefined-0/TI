@@ -1,0 +1,27 @@
+{
+  "folders": [
+    {
+      "path": "B_MSPM0L1306"
+    },
+    {
+      "path": "C_MSPM0G3507"
+    }
+  ],
+  "settings": {
+    "files.associations": {
+      "msp430.h": "c",
+      "msp430g2553.h": "c"
+    }
+},
+"launch": {
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "adc12_single_conversion_LP_MSPM0G3507_nortos_ticlang",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "adc12_single_conversion_LP_MSPM0G3507_nortos_ticlang"
+        }
+    ]
+}
+}

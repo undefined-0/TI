@@ -6,10 +6,10 @@ SHELL = cmd.exe
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SYSCFG_SRCS += \
-../gpio_software_poll.syscfg 
+../1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.syscfg 
 
 C_SRCS += \
-../gpio_software_poll.c \
+../1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.c \
 ./ti_msp_dl_config.c \
 D:/ti/mspm0_sdk_1_30_00_03/source/ti/devices/msp/m0p/startup_system_files/ticlang/startup_mspm0l130x_ticlang.c 
 
@@ -22,7 +22,7 @@ GEN_FILES += \
 ./ti_msp_dl_config.c 
 
 C_DEPS += \
-./gpio_software_poll.d \
+./1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.d \
 ./ti_msp_dl_config.d \
 ./startup_mspm0l130x_ticlang.d 
 
@@ -30,7 +30,7 @@ GEN_OPTS += \
 ./device.opt 
 
 OBJS += \
-./gpio_software_poll.o \
+./1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.o \
 ./ti_msp_dl_config.o \
 ./startup_mspm0l130x_ticlang.o 
 
@@ -40,7 +40,7 @@ GEN_MISC_FILES += \
 ./Event.dot 
 
 OBJS__QUOTED += \
-"gpio_software_poll.o" \
+"1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.o" \
 "ti_msp_dl_config.o" \
 "startup_mspm0l130x_ticlang.o" 
 
@@ -50,7 +50,7 @@ GEN_MISC_FILES__QUOTED += \
 "Event.dot" 
 
 C_DEPS__QUOTED += \
-"gpio_software_poll.d" \
+"1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.d" \
 "ti_msp_dl_config.d" \
 "startup_mspm0l130x_ticlang.d" 
 
@@ -60,11 +60,11 @@ GEN_FILES__QUOTED += \
 "ti_msp_dl_config.c" 
 
 C_SRCS__QUOTED += \
-"../gpio_software_poll.c" \
+"../1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.c" \
 "./ti_msp_dl_config.c" \
 "D:/ti/mspm0_sdk_1_30_00_03/source/ti/devices/msp/m0p/startup_system_files/ticlang/startup_mspm0l130x_ticlang.c" 
 
 SYSCFG_SRCS__QUOTED += \
-"../gpio_software_poll.syscfg" 
+"../1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.syscfg" 
 
 

@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "1_LED_flash",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "1_LED_flash"
+        },
+        {
+            "name": "gpio_software_poll_LP_MSPM0L1306_nortos_ticlang",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "gpio_software_poll_LP_MSPM0L1306_nortos_ticlang"
+        },
+        {
+            "name": "timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang"
+        },
+        {
+            "name": "timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang"
+        },
+        {
+            "name": "adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang"
+        }
+    ]
+}

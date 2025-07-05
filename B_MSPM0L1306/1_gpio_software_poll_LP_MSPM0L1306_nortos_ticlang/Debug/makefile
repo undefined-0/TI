@@ -10,7 +10,7 @@ GEN_OPTS__FLAG := @"./device.opt"
 GEN_CMDS__FLAG := -Wl,-l"./device_linker.cmd" 
 
 ORDERED_OBJS += \
-"./gpio_software_poll.o" \
+"./1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.o" \
 "./ti_msp_dl_config.o" \
 "./startup_mspm0l130x_ticlang.o" \
 $(GEN_CMDS__FLAG) \
@@ -122,29 +122,29 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.out 
+1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.out 
 
 EXE_OUTPUTS__QUOTED += \
-"gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.out" 
+"1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.out" 
 
 
 # All Target
 all: $(OBJS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.out"
+	@$(MAKE) --no-print-directory -Onone "1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.out"
 
 # Tool invocations
-gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.out: $(OBJS) $(GEN_CMDS)
+1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.out: $(OBJS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: Arm Linker'
-	"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/bin/tiarmclang.exe" @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -gdwarf-3 -Wl,-m"gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.map" -Wl,-i"D:/ti/mspm0_sdk_1_30_00_03/source" -Wl,-i"D:/CCSworkspace_v12/gpio_software_poll_LP_MSPM0L1306_nortos_ticlang" -Wl,-i"D:/CCSworkspace_v12/gpio_software_poll_LP_MSPM0L1306_nortos_ticlang/Debug/syscfg" -Wl,-i"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/lib" -Wl,--diag_wrap=off -Wl,--display_error_number -Wl,--warn_sections -Wl,--xml_link_info="gpio_software_poll_LP_MSPM0L1306_nortos_ticlang_linkInfo.xml" -Wl,--rom_model -o "gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.out" $(ORDERED_OBJS)
+	"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/bin/tiarmclang.exe" @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -gdwarf-3 -Wl,-m"1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.map" -Wl,-i"D:/ti/mspm0_sdk_1_30_00_03/source" -Wl,-i"D:/CCSworkspace_v12/B_MSPM0L1306/1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang" -Wl,-i"D:/CCSworkspace_v12/B_MSPM0L1306/1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang/Debug/syscfg" -Wl,-i"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/lib" -Wl,--diag_wrap=off -Wl,--display_error_number -Wl,--warn_sections -Wl,--xml_link_info="1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang_linkInfo.xml" -Wl,--rom_model -o "1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "gpio_software_poll.o" "ti_msp_dl_config.o" "startup_mspm0l130x_ticlang.o" 
-	-$(RM) "gpio_software_poll.d" "ti_msp_dl_config.d" "startup_mspm0l130x_ticlang.d" 
+	-$(RM) "1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.o" "ti_msp_dl_config.o" "startup_mspm0l130x_ticlang.o" 
+	-$(RM) "1_gpio_software_poll_LP_MSPM0L1306_nortos_ticlang.d" "ti_msp_dl_config.d" "startup_mspm0l130x_ticlang.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

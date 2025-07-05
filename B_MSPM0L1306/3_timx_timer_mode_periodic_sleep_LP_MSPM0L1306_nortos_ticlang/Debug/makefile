@@ -122,21 +122,21 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang.out 
+3_timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang.out 
 
 EXE_OUTPUTS__QUOTED += \
-"timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang.out" 
+"3_timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang.out" 
 
 
 # All Target
 all: $(OBJS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang.out"
+	@$(MAKE) --no-print-directory -Onone "3_timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang.out"
 
 # Tool invocations
-timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang.out: $(OBJS) $(GEN_CMDS)
+3_timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang.out: $(OBJS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: Arm Linker'
-	"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/bin/tiarmclang.exe" @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -gdwarf-3 -Wl,-m"timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang.map" -Wl,-i"D:/ti/mspm0_sdk_1_30_00_03/source" -Wl,-i"D:/CCSworkspace_v12/timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang" -Wl,-i"D:/CCSworkspace_v12/timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang/Debug/syscfg" -Wl,-i"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/lib" -Wl,--diag_wrap=off -Wl,--display_error_number -Wl,--warn_sections -Wl,--xml_link_info="timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang_linkInfo.xml" -Wl,--rom_model -o "timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang.out" $(ORDERED_OBJS)
+	"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/bin/tiarmclang.exe" @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -gdwarf-3 -Wl,-m"3_timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang.map" -Wl,-i"D:/ti/mspm0_sdk_1_30_00_03/source" -Wl,-i"D:/CCSworkspace_v12/B_MSPM0L1306/3_timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang" -Wl,-i"D:/CCSworkspace_v12/B_MSPM0L1306/3_timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang/Debug/syscfg" -Wl,-i"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/lib" -Wl,--diag_wrap=off -Wl,--display_error_number -Wl,--warn_sections -Wl,--xml_link_info="3_timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang_linkInfo.xml" -Wl,--rom_model -o "3_timx_timer_mode_periodic_sleep_LP_MSPM0L1306_nortos_ticlang.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 

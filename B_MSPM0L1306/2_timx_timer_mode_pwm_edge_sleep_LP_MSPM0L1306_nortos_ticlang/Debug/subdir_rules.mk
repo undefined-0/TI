@@ -8,35 +8,35 @@ SHELL = cmd.exe
 %.o: ../%.c $(GEN_OPTS) | $(GEN_FILES) $(GEN_MISC_FILES)
 	@echo 'Building file: "$<"'
 	@echo 'Invoking: Arm Compiler'
-	"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -I"D:/CCSworkspace_v12/timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang" -I"D:/CCSworkspace_v12/timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang/Debug" -I"D:/ti/mspm0_sdk_1_30_00_03/source/third_party/CMSIS/Core/Include" -I"D:/ti/mspm0_sdk_1_30_00_03/source" -gdwarf-3 -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
+	"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -I"D:/CCSworkspace_v12/B_MSPM0L1306/2_timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang" -I"D:/CCSworkspace_v12/B_MSPM0L1306/2_timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang/Debug" -I"D:/ti/mspm0_sdk_1_30_00_03/source/third_party/CMSIS/Core/Include" -I"D:/ti/mspm0_sdk_1_30_00_03/source" -gdwarf-3 -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
-build-1020447103: ../timx_timer_mode_pwm_edge_sleep.syscfg
+build-2057203599: ../timx_timer_mode_pwm_edge_sleep.syscfg
 	@echo 'Building file: "$<"'
 	@echo 'Invoking: SysConfig'
-	"D:/ccstheia141/ccs/utils/sysconfig_1.20.0/sysconfig_cli.bat" --script "D:/CCSworkspace_v12/timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang/timx_timer_mode_pwm_edge_sleep.syscfg" -o "." -s "D:/ti/mspm0_sdk_1_30_00_03/.metadata/product.json" --compiler ticlang
+	"D:/ccstheia141/ccs/utils/sysconfig_1.20.0/sysconfig_cli.bat" --script "D:/CCSworkspace_v12/B_MSPM0L1306/2_timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang/timx_timer_mode_pwm_edge_sleep.syscfg" -o "." -s "D:/ti/mspm0_sdk_1_30_00_03/.metadata/product.json" --compiler ticlang
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
-device_linker.cmd: build-1020447103 ../timx_timer_mode_pwm_edge_sleep.syscfg
-device.opt: build-1020447103
-device.cmd.genlibs: build-1020447103
-ti_msp_dl_config.c: build-1020447103
-ti_msp_dl_config.h: build-1020447103
-Event.dot: build-1020447103
+device_linker.cmd: build-2057203599 ../timx_timer_mode_pwm_edge_sleep.syscfg
+device.opt: build-2057203599
+device.cmd.genlibs: build-2057203599
+ti_msp_dl_config.c: build-2057203599
+ti_msp_dl_config.h: build-2057203599
+Event.dot: build-2057203599
 
 %.o: ./%.c $(GEN_OPTS) | $(GEN_FILES) $(GEN_MISC_FILES)
 	@echo 'Building file: "$<"'
 	@echo 'Invoking: Arm Compiler'
-	"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -I"D:/CCSworkspace_v12/timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang" -I"D:/CCSworkspace_v12/timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang/Debug" -I"D:/ti/mspm0_sdk_1_30_00_03/source/third_party/CMSIS/Core/Include" -I"D:/ti/mspm0_sdk_1_30_00_03/source" -gdwarf-3 -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
+	"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -I"D:/CCSworkspace_v12/B_MSPM0L1306/2_timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang" -I"D:/CCSworkspace_v12/B_MSPM0L1306/2_timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang/Debug" -I"D:/ti/mspm0_sdk_1_30_00_03/source/third_party/CMSIS/Core/Include" -I"D:/ti/mspm0_sdk_1_30_00_03/source" -gdwarf-3 -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
 startup_mspm0l130x_ticlang.o: D:/ti/mspm0_sdk_1_30_00_03/source/ti/devices/msp/m0p/startup_system_files/ticlang/startup_mspm0l130x_ticlang.c $(GEN_OPTS) | $(GEN_FILES) $(GEN_MISC_FILES)
 	@echo 'Building file: "$<"'
 	@echo 'Invoking: Arm Compiler'
-	"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -I"D:/CCSworkspace_v12/timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang" -I"D:/CCSworkspace_v12/timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang/Debug" -I"D:/ti/mspm0_sdk_1_30_00_03/source/third_party/CMSIS/Core/Include" -I"D:/ti/mspm0_sdk_1_30_00_03/source" -gdwarf-3 -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
+	"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/bin/tiarmclang.exe" -c @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -I"D:/CCSworkspace_v12/B_MSPM0L1306/2_timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang" -I"D:/CCSworkspace_v12/B_MSPM0L1306/2_timx_timer_mode_pwm_edge_sleep_LP_MSPM0L1306_nortos_ticlang/Debug" -I"D:/ti/mspm0_sdk_1_30_00_03/source/third_party/CMSIS/Core/Include" -I"D:/ti/mspm0_sdk_1_30_00_03/source" -gdwarf-3 -MMD -MP -MF"$(basename $(<F)).d_raw" -MT"$(@)"  $(GEN_OPTS__FLAG) -o"$@" "$<"
 	@echo 'Finished building: "$<"'
 	@echo ' '
 

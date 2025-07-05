@@ -122,21 +122,21 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang.out 
+4_adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang.out 
 
 EXE_OUTPUTS__QUOTED += \
-"adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang.out" 
+"4_adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang.out" 
 
 
 # All Target
 all: $(OBJS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang.out"
+	@$(MAKE) --no-print-directory -Onone "4_adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang.out"
 
 # Tool invocations
-adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang.out: $(OBJS) $(GEN_CMDS)
+4_adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang.out: $(OBJS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: Arm Linker'
-	"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/bin/tiarmclang.exe" @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -gdwarf-3 -Wl,-m"adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang.map" -Wl,-i"D:/ti/mspm0_sdk_1_30_00_03/source" -Wl,-i"D:/CCSworkspace_v12/adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang" -Wl,-i"D:/CCSworkspace_v12/adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang/Debug/syscfg" -Wl,-i"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/lib" -Wl,--diag_wrap=off -Wl,--display_error_number -Wl,--warn_sections -Wl,--xml_link_info="adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang_linkInfo.xml" -Wl,--rom_model -o "adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang.out" $(ORDERED_OBJS)
+	"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/bin/tiarmclang.exe" @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -gdwarf-3 -Wl,-m"4_adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang.map" -Wl,-i"D:/ti/mspm0_sdk_1_30_00_03/source" -Wl,-i"D:/CCSworkspace_v12/B_MSPM0L1306/4_adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang" -Wl,-i"D:/CCSworkspace_v12/B_MSPM0L1306/4_adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang/Debug/syscfg" -Wl,-i"D:/ccstheia141/ccs/tools/compiler/ti-cgt-armllvm_3.2.2.LTS/lib" -Wl,--diag_wrap=off -Wl,--display_error_number -Wl,--warn_sections -Wl,--xml_link_info="4_adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang_linkInfo.xml" -Wl,--rom_model -o "4_adc12_single_conversion_LP_MSPM0L1306_nortos_ticlang.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 

@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "gpio_software_poll_LP_MSPM0G3507_nortos_ticlang",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "gpio_software_poll_LP_MSPM0G3507_nortos_ticlang"
+        },
+        {
+            "name": "adc12_single_conversion_LP_MSPM0G3507_nortos_ticlang",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "adc12_single_conversion_LP_MSPM0G3507_nortos_ticlang"
+        },
+        {
+            "name": "3507_AD_DA",
+            "type": "ccs-debug",
+            "request": "launch",
+            "project": "3507_AD_DA"
+        }
+    ]
+}

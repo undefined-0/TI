@@ -1,0 +1,73 @@
+/**
+ * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
+ * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
+ * @cliArgs --device "MSPM0G350X" --package "LQFP-64(PM)" --part "Default" --product "mspm0_sdk@1.30.00.03"
+ * @versions {"tool":"1.20.0+3587"}
+ */
+
+/**
+ * Import the modules used in this configuration.
+ */
+const ADC12  = scripting.addModule("/ti/driverlib/ADC12", {}, false);
+const ADC121 = ADC12.addInstance();
+const Board  = scripting.addModule("/ti/driverlib/Board");
+const DAC12  = scripting.addModule("/ti/driverlib/DAC12");
+const GPIO   = scripting.addModule("/ti/driverlib/GPIO", {}, false);
+const GPIO1  = GPIO.addInstance();
+const SYSCTL = scripting.addModule("/ti/driverlib/SYSCTL");
+const TIMER  = scripting.addModule("/ti/driverlib/TIMER", {}, false);
+const TIMER1 = TIMER.addInstance();
+
+/**
+ * Write custom configuration values to the imported modules.
+ */
+const gate8  = system.clockTree["MFPCLKGATE"];
+gate8.enable = true;
+
+ADC121.$name               = "ADC12_0";
+ADC121.enabledInterrupts   = ["DL_ADC12_INTERRUPT_MEM0_RESULT_LOADED"];
+ADC121.powerDownMode       = "DL_ADC12_POWER_DOWN_MODE_MANUAL";
+ADC121.trigSrc             = "DL_ADC12_TRIG_SRC_EVENT";
+ADC121.sampleTime0         = "62.5 ns";
+ADC121.subChanID           = 1;
+ADC121.adcMem0trig         = "DL_ADC12_TRIGGER_MODE_TRIGGER_NEXT";
+ADC121.repeatMode          = true;
+ADC121.peripheral.$assign  = "ADC0";
+ADC121.adcPin0Config.$name = "ti_driverlib_gpio_GPIOPinGeneric0";
+
+
+DAC12.dacAmplifier       = "ON";
+DAC12.dacOutputPinEn     = true;
+DAC12.OutPinConfig.$name = "ti_driverlib_gpio_GPIOPinGeneric1";
+
+GPIO1.$name                          = "GPIO_LEDS";
+GPIO1.port                           = "PORTA";
+GPIO1.portSegment                    = "Lower";
+GPIO1.associatedPins[0].$name        = "USER_LED_1";
+GPIO1.associatedPins[0].initialValue = "SET";
+GPIO1.associatedPins[0].assignedPin  = "14";
+
+SYSCTL.forceDefaultClkConfig = true;
+SYSCTL.clockTreeEn           = true;
+SYSCTL.MFPCLKEn              = true;
+
+TIMER1.$name                       = "TIMER_0";
+TIMER1.timerPeriod                 = "0.1 ms";
+TIMER1.timerStartTimer             = true;
+TIMER1.event1PublisherChannel      = 1;
+TIMER1.event1ControllerInterruptEn = ["ZERO_EVENT"];
+TIMER1.timerMode                   = "PERIODIC";
+
+/**
+ * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
+ * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
+ * re-solve from scratch.
+ */
+ADC121.peripheral.adcPin0.$suggestSolution   = "PA27";
+Board.peripheral.$suggestSolution            = "DEBUGSS";
+Board.peripheral.swclkPin.$suggestSolution   = "PA20";
+Board.peripheral.swdioPin.$suggestSolution   = "PA19";
+DAC12.peripheral.$suggestSolution            = "DAC0";
+DAC12.peripheral.OutPin.$suggestSolution     = "PA15";
+GPIO1.associatedPins[0].pin.$suggestSolution = "PA14";
+TIMER1.peripheral.$suggestSolution           = "TIMA0";
